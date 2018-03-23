@@ -44,12 +44,12 @@ func main() {
 			panic(err.Error())
 		}
 		fmt.Printf("There are %d pods in the cluster\n", len(pods.Items))
-		fmt.Printf("pods", pods.Items)
+		// fmt.Printf("pods", pods.Items)
 
 		// Examples for error handling:
 		// - Use helper functions like e.g. errors.IsNotFound()
 		// - And/or cast to StatusError and use its properties like e.g. ErrStatus.Message
-		_, err = clientset.CoreV1().Pods("spinnaker").Get("clouddriver-xxxxx", metav1.GetOptions{})
+		_, err = clientset.CoreV1().Pods("spinnaker").Get("spin-clouddriver-xxxxx", metav1.GetOptions{})
 		if errors.IsNotFound(err) {
 			fmt.Printf("Pod not found\n")
 		} else if statusError, isStatus := err.(*errors.StatusError); isStatus {
