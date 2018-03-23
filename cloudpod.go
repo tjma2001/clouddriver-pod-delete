@@ -39,12 +39,12 @@ func main() {
 		panic(err.Error())
 	}
 	for {
-		pods, err := clientset.CoreV1().Pods("").List(metav1.ListOptions{})
+		pods, err := clientset.CoreV1().Pods("spinnaker").List(metav1.ListOptions{})
 		if err != nil {
 			panic(err.Error())
 		}
 		fmt.Printf("There are %d pods in the cluster\n", len(pods.Items))
-		// fmt.Printf("pods", pods.Items)
+		fmt.Printf("pods", pods.Items)
 
 		// Examples for error handling:
 		// - Use helper functions like e.g. errors.IsNotFound()
